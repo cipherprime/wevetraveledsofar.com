@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+
+{% assign current_page = page.url|remove:'.html'|split:'/'|last|capitalize %}
+
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
+	{% if meta.description %}
+		<meta name="description" content="{{ meta.description }}">
+	{% endif %}{% if meta.robots %}
+		<meta name="robots" content="{{ meta.robots }}">
+	{% endif %}
+		<meta name="copyright" content="Cipher Prime Studios, Inc.">
+
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" type="text/css" />
+		<link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" type="text/css" />
+		<!-- <link rel="stylesheet" href="/css/style.css" type="text/css" /> -->
+		<link rel="stylesheet" href="/css/custom.css" type="text/css" />
+
+		<script src="/js/modernizr-2.6.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-5590559-8', 'auto');
+		  ga('send', 'pageview');
+		</script>
+
+	</head>
+	<body>
+		<header id="header">
+			<div class="inner clearfix">
+				<a href="/"><img src="/images/weve_traveled_so_far_title.png"></a>
+				<p>
+					An interactive exhibition that chronicles the effort of two men working to keep a promise.
+				</p>
+				<nav>
+					<ul>
+						{% assign sorted_pages = site.pages | sort:"order" %}
+						{% for page in sorted_pages %}
+							{% if page.title != nil %}
+							<li {% if current_page == page.title %}class="current"{% endif %}><a href="{{ page.url }}">{{ page.title }}</a></li>
+							{% endif %}
+						{% endfor %}
+						<li><a href="https://society6.com/cipherprime/collection/weve-traveled-so-far">Store</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<section id="content">
+			<div class="inner">
+				{{ content }}
+				<hr/>
+			</div>
+		</section>
+
+		<footer id="footer">
+
+			<div class="inner">
+				<nav>
+					<ul>
+						{% for page in pages %}
+							{% if page.title != "Index" %}
+							<li {% if current_page == page %}class="current"{% endif %}><a href="{{ page.url }}">{{ page.title }}</a></li>
+							{% endif %}
+						{% endfor %}
+						<li><a href="https://society6.com/cipherprime/collection/weve-traveled-so-far">Store</a></li>
+					</ul>
+					<p>If you are interested in purchasing an original piece, please <a href="mailto:team@cipherprime.com">contact us</a>.</p>
+				</nav>
+			</div>
+
+			<div class="inner">
+				<a href="http://www.cipherprime.com">
+					<img src="/images/cipherprime_footer.png"/>
+				</a>
+			</div>
+
+			<div class="inner">
+				<p>© 2015 Cipher Prime Studios, Inc.</p>
+			</div>
+		</footer>
+
+	</body>
+</html>

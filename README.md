@@ -1,2 +1,0 @@
-# wevetraveledsofar.com
-We've 

@@ -57,8 +57,8 @@ Each large piece has its own dark counterpart. These pieces represent the past, 
 [Large Pieces]: /img/large_overview.jpg
 [Medium Pieces]: /img/medium_overview.jpg
 
-[Pieces]: /show/pieces
-[Interactive]: /show/interactive
+[Pieces]: /pieces
+[Interactive]: /interactive
 
 [Dain Saint]: http://twitter.com/dainsaint
 [Will Stallwood]: http://twitter.com/willstall
